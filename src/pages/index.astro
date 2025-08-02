@@ -1,4 +1,9 @@
 ---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+
 const pageTitle = "Homepage";
 const currentYear = new Date().getFullYear();
 ---
@@ -12,9 +17,8 @@ const currentYear = new Date().getFullYear();
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+
+		<Header />
 		<h1>{pageTitle}</h1>
 		<section>
 			<h2>Welcome to Astrostormtroopers</h2>
@@ -26,6 +30,10 @@ const currentYear = new Date().getFullYear();
 			</p>
 			<p>&copy; {currentYear} Astrostormtroopers. All rights reserved.</p>
 		</section>
+		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
 
