@@ -1,45 +1,17 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+import BaseLayout from "../layouts/BaseLayout.astro"
+import BlogPost from "../components/BlogPost.astro";
 const pageTitle = "Science News Blog";
+
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-
-    <Header />
-    <h1>Science News Blog</h1>
-    <p>Welcome to our blog! Here, you'll find the latest updates, insights, and stories from the world of science and astronomy.</p>
-    <section>
-      <h2>Latest Posts</h2>
-      <ul>
-        <li><a href="/posts/post-1/">Post 1</a></li>
-        <li><a href="/posts/post-2/">Post 2</a></li>
-        <li><a href="/posts/post-3/">Post 3</a></li>
-      </ul>
-      <!-- <article>
-        <h3>The James Webb Space Telescope: A New Era in Astronomy</h3>
-        <p>The James Webb Space Telescope is revolutionizing our understanding of the universe. From capturing stunning images of distant galaxies to uncovering the secrets of exoplanets, its discoveries are truly groundbreaking.</p>
-        <a href="/blog/james-webb-space-telescope">Read more</a>
-      </article> -->
-      <article>
-        <h3>Climate Change: What the Latest Research Tells Us</h3>
-        <p>Scientists are uncovering new data about the impacts of climate change. Learn about the latest findings and what they mean for our planet's future.</p>
-        <a href="/blog/climate-change-research">Read more</a>
-      </article>
-    </section>
-    <Footer />
-    <script>
-			import "../scripts/menu.js";
-		</script>
-  </body>
-</html>
+<BaseLayout pageTitle = {pageTitle}>
+      <p>Welcome to our blog! Here, you'll find the latest updates, insights, and stories from the world of science and astronomy.</p>
+      <section>
+        <h2>Latest Posts</h2>
+        <ul>
+        {allPosts.map((post:any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+        </ul>
+      </section>
+</BaseLayout>

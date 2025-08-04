@@ -1,19 +1,16 @@
 ---
-title: "Post 2"
+layout: ../../layouts/MarkdownPostLayout.astro
+
+title: "Exploring fascinating topics in science, technology, and innovation."
 pubDate: 2023-10-05
-description: "Exploring fascinating topics in science, technology, and innovation."
+excerpt: "This is the second post on the Science News Website. Here, we explore fascinating topics in science, technology, and innovation."
 author: "Babis"
 image:
-  url: "https://example.com/science-news-image.jpg"
+  url: https://plus.unsplash.com/premium_photo-1661885612035-58b85113fa89?q=80&w=1086&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   alt: "A futuristic depiction of science and technology."
 tags: ["science", "technology", "innovation"]
 ---
 
-# Welcome to Post 2
-
-Published on: 2023-10-05
-
-This is the second post on the Science News Website. Here, we explore fascinating topics in science, technology, and innovation.
 
 ## What We've Covered
 
@@ -23,6 +20,4 @@ This is the second post on the Science News Website. Here, we explore fascinatin
 
 3. **Insights into space exploration missions**: Explore the latest updates on humanity's journey to the stars.
 
-## What's Next
 
-Stay tuned for more updates and exciting discoveries in the world of science and technology!
