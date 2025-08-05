@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
+import { getCollection } from "astro:content";
 
 
 
 
 export async function getStaticPaths() {
-  const allPosts = Object.values(import.meta.glob('../posts/*.md', {eager:true}))
+   const allPosts = await getCollection("blog");
 
   // ALTERNATIVE FOR CONCAT SUNARRAYS TO ONE ARRAY - flatmap cuts all subarrays
-   const tags = allPosts.flatMap((post: any) => post.frontmatter.tags ?? []);
+   const tags = allPosts.flatMap((post: any) => post.data.tags ?? []);
 
    //Unique items arrays -  ignore repeated values
    const uniqueTags = [...new Set(tags)]
@@ -25,13 +26,13 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag) )
+const filteredPosts = posts.filter((post: any) => post.data.tags?.includes(tag) )
 
 
 ---
 <BaseLayout pageTitle={tag}>
   <p>Posts tagged with {tag}</p>
   <ul>
-    {filteredPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+    {filteredPosts.map((post: any) => <BlogPost url={`/posts/${post.id}/`} title={post.data.title}/>)}
   </ul>
 </BaseLayout>

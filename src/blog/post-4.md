@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 
 title: 'Exploring the Cosmos'
 pubDate: 2022-08-15

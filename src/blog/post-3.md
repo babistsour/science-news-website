@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 
 title: 'A deep dive into the wonders of the universe.'
 pubDate: 2023-10-05

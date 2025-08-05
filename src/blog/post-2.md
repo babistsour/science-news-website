@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 
 title: "Exploring fascinating topics in science, technology, and innovation."
 pubDate: 2023-10-05
